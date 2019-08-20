@@ -41,7 +41,7 @@ app.get('/', async (req, res) =>{
 async function getSfDetails(){
   console.log('inside sf gedetails method');
   return new Promise((resolve, reject) => {
-    client.query('SELECT name,sfid FROM salesforcedevraj.account ORDER BY name NULLS LAST LIMIT 10', function (err, ret) {
+    client.query('SELECT name,sfid FROM '+process.env.schemaName+'.account ORDER BY name NULLS LAST LIMIT 10', function (err, ret) {
         if (err) {
           console.error(err);
           reject(err);
@@ -85,7 +85,7 @@ app.get('/contact', async (req, res) =>{
 async function getSfConDetails(){
   console.log('inside sf gedetails method');
   return new Promise((resolve, reject) => {
-    client.query('SELECT firstname,lastname,sfid FROM salesforcedevraj.contact ORDER BY firstname NULLS LAST LIMIT 10', function (err, ret) {
+    client.query('SELECT firstname,lastname,sfid FROM '+process.env.schemaName.contact+' ORDER BY firstname NULLS LAST LIMIT 10', function (err, ret) {
         if (err) {
           console.error(err);
           reject(err);
