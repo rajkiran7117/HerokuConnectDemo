@@ -21,7 +21,7 @@ app.get('/', async (req, res) =>{
   
   recordsList =  await getSfDetails();
   console.log('after  sf gedetails method'+JSON.stringify(recordsList));
-  //queryTest();
+  //queryTest();//
   
   var i=0;
   console.log(tableList);
